@@ -1,0 +1,9 @@
+{
+  "status": "running",
+  "start_row": 51000,
+  "end_row": 52000,
+  "batch_size": 50,
+  "next_row": 51008,
+  "last_completed_row": 51007,
+  "rows_done": 8
+}

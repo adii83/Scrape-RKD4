@@ -35,6 +35,7 @@ BATCH_COOLDOWN_MIN = float(__import__("os").environ.get("BH_BATCH_COOLDOWN_MIN",
 BATCH_COOLDOWN_MAX = float(__import__("os").environ.get("BH_BATCH_COOLDOWN_MAX", "90.0"))
 BLOCK_RECHECK_MIN = float(__import__("os").environ.get("BH_BLOCK_RECHECK_MIN", "120.0"))
 BLOCK_RECHECK_MAX = float(__import__("os").environ.get("BH_BLOCK_RECHECK_MAX", "240.0"))
+ENABLE_BLOCK_WAIT = __import__("os").environ.get("BH_ENABLE_BLOCK_WAIT", "0") == "1"
 
 BLOCKED_FACEBOOK_URL_KEYWORDS = [
     "facebook.com/ummcampus",
@@ -98,7 +99,7 @@ def safe_navigate(url, context, min_delay, max_delay):
         cdp("Page.navigate", url=url)
         wait_for_load()
         wait(random.uniform(min_delay, max_delay))
-        if detect_challenge_or_block():
+        if ENABLE_BLOCK_WAIT and detect_challenge_or_block():
             wait_until_unblocked(context)
             continue
         return
