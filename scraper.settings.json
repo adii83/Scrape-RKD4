@@ -1,0 +1,14 @@
+﻿{
+    "cdp_url":  "http://127.0.0.1:9333",
+    "start_row":  1,
+    "end_row":  1000,
+    "batch_size":  100,
+    "search_delay_min":  5.0,
+    "search_delay_max":  15.0,
+    "profile_delay_min":  2.0,
+    "profile_delay_max":  4.5,
+    "batch_cooldown_min":  20.0,
+    "batch_cooldown_max":  90.0,
+    "block_recheck_min":  120.0,
+    "block_recheck_max":  240.0
+}
